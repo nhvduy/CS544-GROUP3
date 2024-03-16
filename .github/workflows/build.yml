@@ -2,8 +2,7 @@ name: Build and Deploy Report Service
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
 env:
   REGISTRY_SERVER: cs544group3.azurecr.io
   IMAGE_ID: "cs544group3.azurecr.io/cs544_project:latest"
@@ -32,7 +31,7 @@ jobs:
         
     - name: Replace secrets in application.yml
       run: |
-        sed -i "s|#\${CONNECTION_STRING}|${CONNECTION_STRING}|g ../cs544-202403-project\src\main\resources" 
+        sed -i "s|#/${CONNECTION_STRING}|${CONNECTION_STRING}|g ../cs544-202403-project\src\main\resources" 
         sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ../cs544-202403-project\src\main\resources" 
         sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ../cs544-202403-project\src\main\resources" 
         
