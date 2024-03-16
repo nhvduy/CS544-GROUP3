@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${CONNECTION_STRING}
-    username: ${DB_USER_ID}
-    password: ${DB_USER_PASSWORD}
+    url: jdbc:sqlserver://cs544group3.database.windows.net:1433;databaseName=group3;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    username: admingroup3
+    password: cS544Group3
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     database-platform: org.hibernate.dialect.SQLServerDialect
