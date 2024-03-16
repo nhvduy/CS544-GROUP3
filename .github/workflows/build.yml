@@ -10,7 +10,7 @@ env:
   REGISTRY_USERNAME: "cs544group3"
   REGISTRY_PASSWORD: ${{ secrets.ACR_SECRET}}
       
-      
+
   CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
   DATABASE_USER_ID: ${{ secrets.DATABASE_USER_ID }}
   DATABASE_USER_PASSWORD: ${{ secrets.DATABASE_USER_PASSWORD }}
@@ -32,7 +32,7 @@ jobs:
         
     - name: Replace secrets in application.yml
       run: |
-        sed -i "s|\${CONNECTION_STRING}|${CONNECTION_STRING}|g ../cs544-202403-project\src\main\resources" 
+        sed -i "s|#\${CONNECTION_STRING}|${CONNECTION_STRING}|g ../cs544-202403-project\src\main\resources" 
         sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ../cs544-202403-project\src\main\resources" 
         sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ../cs544-202403-project\src\main\resources" 
         
