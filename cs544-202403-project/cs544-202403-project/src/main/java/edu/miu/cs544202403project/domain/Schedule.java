@@ -13,13 +13,12 @@ import java.util.Collection;
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id;
-    private LocalDateTime startedDateTime;
-    private LocalDateTime endedDateTime;
+    private  long scheduleId;
 
-    @OneToMany
-    @JoinColumn(name="session_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="sessionList")
     Collection<Session> sessions=new ArrayList<>();
+
 
     public  Schedule(){}
 }

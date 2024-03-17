@@ -12,8 +12,14 @@ import java.util.Collection;
 public class ScanRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private long id;
+    private long scanRecordId;
     private String barCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="scannerCode")
+    private Scanner scannerCode;
     private LocalDateTime scanDateTime;
+
+    public ScanRecord(){}
 
 }

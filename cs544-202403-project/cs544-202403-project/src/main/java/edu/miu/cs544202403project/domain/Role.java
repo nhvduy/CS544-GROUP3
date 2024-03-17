@@ -13,11 +13,20 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private double accountBalance;
+    private long roleId;
+    private String roleType;
 
-    @OneToMany
-    Collection<Account> accounts=new ArrayList<>();
+    @ManyToMany(mappedBy = "roles")
+    Collection<Account> defaultAccounts=new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name="Member_Role",
+            joinColumns=@JoinColumn(name="member_id"),
+            inverseJoinColumns =@JoinColumn(name="role_id")
+    )
+    Collection<Member> members=new ArrayList<>();
+
 
 
 }

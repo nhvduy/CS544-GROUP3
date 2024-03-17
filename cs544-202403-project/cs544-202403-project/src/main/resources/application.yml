@@ -1,11 +1,13 @@
 spring:
   datasource:
-    url: ${CONNECTION_STRING}
-    username: ${DB_USER_ID}
-    password: ${DB_USER_PASSWORD}
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:mysql://localhost:3306/group3?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.SQLServerDialect
     hibernate:
-      ddl-auto: create-drop
-      show-sql: true # Set it to false in production
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

@@ -13,16 +13,13 @@ public class Scanner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-    private String description;
+    private long scannerCode;
     @ManyToOne
     Location location;
     @Enumerated(EnumType.STRING)
     AccountType accountType;
-
     @OneToMany
+    @JoinColumn(name="eventId")
     Collection<Event> events=new ArrayList<>();
-    @OneToMany
-    Collection<ScanRecord> scanRecords=new ArrayList<>();
+    public Scanner(){}
 }

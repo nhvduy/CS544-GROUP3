@@ -13,8 +13,13 @@ import java.time.LocalDateTime;
 public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String name;
-    private String description;
-    private LocalDateTime timing;
+    private long sessionId;
+
+    private LocalDateTime startedDateTime;
+
+    private LocalDateTime endedDateTime;
+
+    private Integer numOfSessions;
+
+    public Session(){}
 }

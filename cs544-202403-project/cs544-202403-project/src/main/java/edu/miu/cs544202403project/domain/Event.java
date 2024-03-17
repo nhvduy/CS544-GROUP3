@@ -15,17 +15,22 @@ public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long id;
-
+    private  long eventId;
     private String name;
     private  String description;
     private LocalDateTime startedDateTime;
-
     private  LocalDateTime endedDateTime;
 
-    @ManyToOne
+    @OneToOne
     Schedule schedule;
-    @OneToMany
-    Collection<EventRegister> eventRegisters= new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name="Event_Member",
+            joinColumns=@JoinColumn(name="event_id"),
+            inverseJoinColumns =@JoinColumn(name="member_id")
+    )
+    Collection<Member> members=new ArrayList<>();
+
     public Event(){}
 }

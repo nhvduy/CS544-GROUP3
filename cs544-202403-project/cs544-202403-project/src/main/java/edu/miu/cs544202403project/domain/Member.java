@@ -12,7 +12,7 @@ public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long memberId;
     private  String firstName;
     private String lastName;
 
@@ -20,15 +20,19 @@ public class Member {
 
     private String barCode;
 
-    @OneToMany
-    Collection<Role> roles=new ArrayList<>();
-
-    @ManyToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="accountId")
     Collection<Account> accounts=new ArrayList<>();
 
-    @OneToMany
-    Collection<ScanRecord> scanRecords=new ArrayList<>();
-    @OneToMany
-    Collection<EventRegister> eventRegisters =new ArrayList<>();
+    @ManyToMany(mappedBy = "members")
+    Collection<Role> roles=new ArrayList<>();
+
+
+    @ManyToMany(mappedBy = "members")
+    Collection<Event> events=new ArrayList<>();
+
+
+
+    public Member(){}
 
 }
