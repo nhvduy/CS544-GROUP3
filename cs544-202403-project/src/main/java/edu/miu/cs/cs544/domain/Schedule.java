@@ -3,8 +3,6 @@ package edu.miu.cs.cs544.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,7 +15,7 @@ public class Schedule {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="scheduleId")
-    Collection<Session> sessions=new ArrayList<>();
+    Collection<edu.miu.cs.cs544.domain.Session> sessions=new ArrayList<>();
 
 
     public  Schedule(){}
