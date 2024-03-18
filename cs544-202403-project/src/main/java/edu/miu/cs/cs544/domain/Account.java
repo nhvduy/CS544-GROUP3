@@ -25,7 +25,7 @@ public class Account {
             joinColumns=@JoinColumn(name="account_id"),
             inverseJoinColumns =@JoinColumn(name="role_id")
     )
-    Collection<Role>  roles=new ArrayList<>();
+    Collection<Role> roles=new ArrayList<>();
 
     public Account(){}
 
