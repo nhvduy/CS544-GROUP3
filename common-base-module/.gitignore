@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-
+.idea/dataSources.xml
 .project
 .classpath
 .factorypath
