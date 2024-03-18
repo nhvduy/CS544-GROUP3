@@ -1,4 +1,4 @@
-/*package edu.miu.cs.cs544.service.mapper;
+package edu.miu.cs.cs544.service.mapper;
 
 import org.springframework.stereotype.Component;
 
@@ -14,4 +14,4 @@ public class MemberToMemberPayloadMapper extends BaseMapper<Member, MemberPayloa
 		super(mapperFactory, Member.class, MemberPayload.class);
 	}
 
-}*/
+}

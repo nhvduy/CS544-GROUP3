@@ -7,9 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //import edu.miu.cs.cs544.service.MemberService;
 
-@SpringBootApplication
-//(scanBasePackages = "edu.miu.common, edu.miu.cs.cs544")
-public class Application implements CommandLineRunner {
+@SpringBootApplication(scanBasePackages = {"edu.miu.common", "edu.miu.cs.cs544"})
+public class Application {
 
 //	@Autowired
 //	private MemberService service;
@@ -17,9 +16,9 @@ public class Application implements CommandLineRunner {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		//service.findAll().forEach(System.out::println);
-	}
+//
+//	@Override
+//	public void run(String... args) throws Exception {
+//		//service.findAll().forEach(System.out::println);
+//	}
 }
