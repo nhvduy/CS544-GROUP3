@@ -1,0 +1,19 @@
+spring:
+  activemq:
+    user: artemis
+    password: artemis
+  datasource:
+    url: jdbc:sqlserver://localhost:1434;databaseName=attendanceDB;trustServerCertificate=true
+    username: sa
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+    generate-ddl: true
