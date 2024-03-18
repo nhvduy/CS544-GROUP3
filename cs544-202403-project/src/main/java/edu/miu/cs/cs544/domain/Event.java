@@ -3,6 +3,7 @@ package edu.miu.cs.cs544.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 @Data
 @Entity
-public class Event {
+public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,0 +1,12 @@
+GET http://localhost:8080/badge-system/events
+Authorization: Basic user 123
+
+###
+POST http://localhost:8080/badge-system/events
+Authorization: Basic user 123
+Content-Type: application/json
+
+{
+  "name": "EA",
+  "description": "Enterprise applications"
+}
