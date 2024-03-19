@@ -24,8 +24,8 @@ public class Event implements Serializable {
     private  LocalDateTime endedDateTime;
 
     @OneToMany
-    @JoinColumn(name="scheduleId")
-    private List<Session> schedule;
+    @JoinColumn(name="eventId")
+    private List<Session> sessions;
 
     @ManyToMany
     @JoinTable(
