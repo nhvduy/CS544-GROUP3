@@ -8,13 +8,20 @@ import edu.miu.cs.cs544.service.contract.ScanRecordPayload;
 import edu.miu.cs.cs544.service.contract.ScannerPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/scannerRecords")
 public class ScannerRecordsController extends BaseReadWriteController<ScanRecordPayload, ScanRecord,Integer> {
 
+    @Autowired
+    private  ScanRecordService scanRecordService;
+
+    @GetMapping("/{scannerCode}/records")
+    public ResponseEntity<?> getScanRecordsByScannerCode(@PathVariable Integer scannerCode){
+        //List<ScanRecordPayload> scanRecord=scanRecordService.
+        return null;
+    }
 }
