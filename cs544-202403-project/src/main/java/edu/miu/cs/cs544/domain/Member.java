@@ -13,7 +13,7 @@ public class Member implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long memberId;
+    private Integer memberId;
     private  String firstName;
     private String lastName;
 
