@@ -4,6 +4,7 @@ spring:
     user: artemis
     password: artemis
   datasource:
+
     url: ${CONNECTION_STRING}
     username: ${DATABASE_USER_ID}
     password: ${DATABASE_USER_PASSWORD}
@@ -13,7 +14,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
