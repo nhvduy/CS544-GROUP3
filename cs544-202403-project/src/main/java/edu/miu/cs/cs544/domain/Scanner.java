@@ -4,16 +4,17 @@ import edu.miu.cs.cs544.domain.constant.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
 @Entity
-public class Scanner {
+public class Scanner implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long scannerCode;
+    private Integer scannerCode;
 
     @ManyToOne
     @JoinColumn(name = "locationId")
