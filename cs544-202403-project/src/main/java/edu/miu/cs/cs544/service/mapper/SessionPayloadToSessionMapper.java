@@ -14,4 +14,5 @@ public class SessionPayloadToSessionMapper extends BaseMapper<SessionPayload, Se
 	public SessionPayloadToSessionMapper(MapperFactory mapperFactory) {
 		super(mapperFactory, SessionPayload.class, Session.class);
 	}
+
 }

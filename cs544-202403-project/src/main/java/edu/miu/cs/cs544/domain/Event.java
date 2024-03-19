@@ -2,7 +2,9 @@ package edu.miu.cs.cs544.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Event {
+public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,8 +22,8 @@ public class Event {
     private LocalDateTime startedDateTime;
     private  LocalDateTime endedDateTime;
 
-    @OneToMany
-    @JoinColumn(name="scheduleId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="event_id")
     private List<Session> schedule;
 
     @ManyToMany
