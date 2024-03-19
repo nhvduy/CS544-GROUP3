@@ -1,0 +1,45 @@
+name: Build and Deploy Service
+on:
+  push:
+    branches: [ "main", "devops" ]
+  workflow_dispatch:
+env:
+  REGISTRY_SERVER: cs544group3.azurecr.io
+  IMAGE_ID: "cs544group3.azurecr.io/cs544_project:latest"
+  REGISTRY_USERNAME: "cs544group3"
+  REGISTRY_PASSWORD: ${{ secrets.ACR_SECRET}}
+      
+
+  CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
+  DATABASE_USER_ID: ${{ secrets.DATABASE_USER_ID }}
+  DATABASE_USER_PASSWORD: ${{ secrets.DATABASE_USER_PASSWORD }}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Sign-in to Azure container registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY_SERVER }}
+        username: ${{ env.REGISTRY_USERNAME }}
+        password: ${{ env.REGISTRY_PASSWORD }}
+        
+    - name: Replace secrets in application.yml
+      run: |
+        sed -i "s|\${CONNECTION_STRING}|${CONNECTION_STRING}|g" ./cs544-202403-project\src\main\resources\application.yml
+        sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ./cs544-202403-project\src\main\resources\application.yml
+        sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ./cs544-202403-project\src\main\resources\application.yml
+        
+    - name: build and push
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
+        file: ./cs544-202403-project/Dockerfile
+        tags: |
+          ${{ env.IMAGE_ID }}
