@@ -6,6 +6,6 @@ import edu.miu.cs.cs544.service.contract.EventPayload;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EventServiceImpl extends BaseReadWriteServiceImpl<EventPayload, Event, Long> implements EventService{
+public class EventServiceImpl extends BaseReadWriteServiceImpl<EventPayload, Event, Integer> implements EventService{
 }
 

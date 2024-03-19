@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class EventPayload implements Serializable {
-    private  Long eventId;
+    private Integer eventId;
     private String name;
     private  String description;
     private LocalDateTime startedDateTime;
