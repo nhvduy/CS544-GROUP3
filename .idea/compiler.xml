@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common-base-service" />
         <module name="common-base-contract" />
-        <module name="cs544-202403-project" />
       </profile>
     </annotationProcessing>
   </component>
