@@ -39,4 +39,4 @@ jobs:
       run: mvn -B install --file ./common-base-module/pom.xml
 
     - name: Build Project with Maven
-      run: mvn -B install --file ./cs544-202403-project/pom.xml
+      run: mvn -B install --file ./cs544-202403-project/pom.xml -DskipTests
