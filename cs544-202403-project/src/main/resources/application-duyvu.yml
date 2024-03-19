@@ -21,4 +21,4 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
-    generate-ddl: true
+    generate-ddl: true 
