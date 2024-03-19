@@ -1,8 +1,8 @@
 package edu.miu.cs.cs544.service.contract;
 
-import lombok.Data;
-
 import java.io.Serializable;
+
+import lombok.Data;
 
 @Data
 public class MemberPayload implements Serializable {

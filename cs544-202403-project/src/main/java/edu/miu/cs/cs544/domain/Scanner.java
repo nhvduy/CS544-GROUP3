@@ -3,6 +3,10 @@ package edu.miu.cs.cs544.domain;
 import edu.miu.cs.cs544.domain.constant.AccountType;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 @Data
 @Entity
 public class Scanner {
@@ -13,7 +17,7 @@ public class Scanner {
 
     @ManyToOne
     @JoinColumn(name = "locationId")
-    edu.miu.cs.cs544.domain.Location location;
+    Location location;
 
     @Enumerated(EnumType.STRING)
     AccountType accountType;
