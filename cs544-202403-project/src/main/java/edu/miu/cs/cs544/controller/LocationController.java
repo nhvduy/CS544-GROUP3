@@ -1,15 +1,12 @@
 package edu.miu.cs.cs544.controller;
 
 import edu.miu.common.controller.BaseReadWriteController;
-import edu.miu.cs.cs544.domain.Account;
-import edu.miu.cs.cs544.service.contract.AccountPayload;
+import edu.miu.cs.cs544.domain.Location;
+import edu.miu.cs.cs544.service.contract.LocationPayLoad;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
-@RequestMapping("/accounts")
-public class AccountController extends BaseReadWriteController<AccountPayload, Account, Integer> {
-    
-
+@RequestMapping("/locations")
+public class LocationController extends BaseReadWriteController<LocationPayLoad, Location, Integer> {
 }
