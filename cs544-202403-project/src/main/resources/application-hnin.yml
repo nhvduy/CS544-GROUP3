@@ -1,11 +1,29 @@
+common:
+  security:
+    enabled: false
+  feign-oauth:
+    enabled: false
+  mvc:
+    enabled: false
+server:
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /badge-system
 spring:
-  activemq:
-    user: artemis
-    password: artemis
+  security:
+    user:
+      name: user
+      password: 123
+  application:
+    name: cs544-202403-project
   datasource:
     url: jdbc:sqlserver://localhost:1434;databaseName=attendanceDB;trustServerCertificate=true
     username: sa
     password: password
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    hikari:
+      maximumPoolSize: 10
   jpa:
     show-sql: true
     hibernate:
@@ -16,4 +34,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
-    generate-ddl: true
+logging:
+  level:
+    root: INFO
+  file:
+    name: /CS544/Logging/${spring.application.name}/logs
