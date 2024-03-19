@@ -18,9 +18,9 @@ spring:
   application:
     name: cs544-202403-project
   datasource:
-    url: jdbc:sqlserver://localhost:1434;databaseName=attendanceDB;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1434;databaseName=group3;trustServerCertificate=true
     username: sa
-    password: password
+    password: domain
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10
