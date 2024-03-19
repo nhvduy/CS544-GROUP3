@@ -9,11 +9,11 @@ import java.util.Collection;
 
 @Data
 @Entity
-public class Account {
+public class Account implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long accountId;
+    private Integer accountId;
     private  String name;
     private  String description;
     private Integer balance;
