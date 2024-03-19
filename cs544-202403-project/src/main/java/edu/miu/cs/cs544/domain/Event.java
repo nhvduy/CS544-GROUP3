@@ -2,6 +2,7 @@ package edu.miu.cs.cs544.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,8 +24,8 @@ public class Event implements Serializable {
     private LocalDateTime startedDateTime;
     private  LocalDateTime endedDateTime;
 
-    @OneToMany
-    @JoinColumn(name="scheduleId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="event_id")
     private List<Session> schedule;
 
     @ManyToMany
