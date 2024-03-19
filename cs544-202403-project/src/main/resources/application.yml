@@ -1,42 +1,25 @@
-common:
-  security:
-    enabled: false
-  feign-oauth:
-    enabled: false
-  mvc:
-    enabled: false
-server:
-  ssl:
-    enabled: false
-  servlet:
-    context-path: /badge-system
 spring:
-  security:
-    user:
-      name: user
-      password: 123
-  application:
-    name: cs544-202403-project
+  activemq:
+    user: artemis
+    password: artemis
   datasource:
-    url: jdbc:sqlserver://cs544group3.database.windows.net:1433;databaseName=hnin;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: admingroup3
-    password: cS544Group3
+
+    url: jdbc:sqlserver://localhost:1434;databaseName=group3;trustServerCertificate=true
+    username: sa
+    password: domain
+
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update2510
+
+      ddl-auto: create
+
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
     properties:
       hibernate:
         dialect: org.hibernate.dialect.SQLServerDialect
-
-logging:
-  level:
-    root: INFO
-  file:
-    name: /CS544/Logging/${spring.application.name}/logs
