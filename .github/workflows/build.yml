@@ -1,4 +1,4 @@
-name: Build and Deploy Service
+name: Build and Deploy Service DevOps
 on:
   push:
     branches: [ "main", "devops" ]
@@ -8,8 +8,6 @@ env:
   IMAGE_ID: "cs544group3.azurecr.io/cs544_project:latest"
   REGISTRY_USERNAME: "cs544group3"
   REGISTRY_PASSWORD: ${{ secrets.ACR_SECRET}}
-      
-
   CONNECTION_STRING: ${{ secrets.CONNECTION_STRING }}
   DATABASE_USER_ID: ${{ secrets.DATABASE_USER_ID }}
   DATABASE_USER_PASSWORD: ${{ secrets.DATABASE_USER_PASSWORD }}
