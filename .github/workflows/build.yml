@@ -24,9 +24,9 @@ jobs:
 
     - name: Replace secrets in application.yml
       run: |
-        sed -i "s|\${CONNECTION_STRING}|${CONNECTION_STRING}|g" ./cs544-202403-project\src\main\resources\application.yml
-        sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ./cs544-202403-project\src\main\resources\application.yml
-        sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ./cs544-202403-project\src\main\resources\application.yml
+        sed -i "s|\${CONNECTION_STRING}|${CONNECTION_STRING}|g" ./cs544-202403-project/src/main/resourcesapplication.yml
+        sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ./cs544-202403-project/src/main/resourcesapplication.yml
+        sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ./cs544-202403-project/src/main/resourcesapplication.yml
         
     - name: Set up JDK 21
         uses: actions/setup-java@v3
