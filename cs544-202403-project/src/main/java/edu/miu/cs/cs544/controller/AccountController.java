@@ -10,5 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/accounts")
 public class AccountController extends BaseReadWriteController<AccountPayload, Account, Integer> {
+    
 
 }
