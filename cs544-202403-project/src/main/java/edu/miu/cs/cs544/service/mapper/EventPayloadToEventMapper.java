@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EventPayloadToEventMapper extends BaseMapper<EventPayload, Event> {
-    protected EventPayloadToEventMapper(MapperFactory mapperFactory) {
+
+    public EventPayloadToEventMapper(MapperFactory mapperFactory){
+
         super(mapperFactory, EventPayload.class, Event.class);
     }
 }

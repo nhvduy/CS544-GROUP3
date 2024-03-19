@@ -3,13 +3,16 @@ package edu.miu.cs.cs544.domain;
 import edu.miu.cs.cs544.domain.constant.LocationType;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.io.Serializable;
+
 @Data
 @Entity
-public class Location {
+public class Location implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long locationId;
+    private Long locationId;
     private String name;
     private String description;
 
