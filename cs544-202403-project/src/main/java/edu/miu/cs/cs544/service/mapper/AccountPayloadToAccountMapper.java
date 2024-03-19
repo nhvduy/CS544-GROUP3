@@ -12,3 +12,4 @@ public class AccountPayloadToAccountMapper extends BaseMapper<AccountPayload, Ac
         super(mapperFactory, AccountPayload.class, Account.class);
     }
 }
+
