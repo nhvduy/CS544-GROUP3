@@ -9,6 +9,7 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+cs544-202403-project/src/main/resources/application-muneeb.yml
 
 # Eclipse m2e generated files
 # Eclipse Core
