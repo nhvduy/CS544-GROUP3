@@ -17,3 +17,4 @@ cs544-202403-project/src/main/resources/application-muneeb.yml
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 /.idea
+cs544-202403-project/src/main/resources/application-duyvu.yml
