@@ -40,7 +40,7 @@ jobs:
       run: mvn -B install --file ./cs544-202403-project/pom.xml -DskipTests
 
     - name: Deploy to Azure Web App
-      uses: Azure/webapps-deploy@v2
+      uses: Azure/webapps-deploy@v3.0.0
       with:
         app-name: 'cs544group3'
         slot-name: 'production'
