@@ -34,7 +34,8 @@ jobs:
         sed -i "s|\${CONNECTION_STRING}|${CONNECTION_STRING}|g" ./cs544-202403-project/src/main/resources/application.yml
         sed -i "s|\${DATABASE_USER_ID}|${DATABASE_USER_ID}|g" ./cs544-202403-project/src/main/resources/application.yml
         sed -i "s|\${DATABASE_USER_PASSWORD}|${DATABASE_USER_PASSWORD}|g" ./cs544-202403-project/src/main/resources/application.yml
-        
+        cat ./cs544-202403-project/src/main/resources/application.yml
+
     - name: build and push
       uses: docker/build-push-action@v3
       with:
