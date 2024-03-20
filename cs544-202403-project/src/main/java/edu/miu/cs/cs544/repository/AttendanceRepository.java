@@ -14,4 +14,6 @@ public interface AttendanceRepository extends BaseRepository<Attendance,Integer>
     @Query("SELECT a FROM Attendance a WHERE a.scanner.event IN (SELECT e FROM Member m JOIN m.events e WHERE m.memberId = :memberId)")
     List<Attendance> findAttendanceByMemberId(@Param("memberId") Integer memberId);
 
+    @Query("SELECT a FROM Attendance a WHERE a.member.memberId = :memberId")
+    List<Attendance> findAllByMemberId(@Param("memberId") Integer memberId);
 }
