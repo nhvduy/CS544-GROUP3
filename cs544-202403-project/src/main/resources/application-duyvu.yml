@@ -1,3 +1,16 @@
+common:
+  security:
+    enabled: false
+  feign-oauth:
+    enabled: false
+  mvc:
+    enabled: false
+server:
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /badge-system
+
 spring:
   activemq:
     broker-url: http://57.151.89.65:61616
