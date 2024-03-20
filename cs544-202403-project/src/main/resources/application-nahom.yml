@@ -1,3 +1,41 @@
+common:
+  security:
+    enabled: false
+  feign-oauth:
+    enabled: false
+  mvc:
+    enabled: false
+server:
+  ssl:
+    enabled: false
+  servlet:
+    context-path: /badge-system
+spring:
+  security:
+    user:
+      name: user
+      password: 123
+  application:
+    name: cs544-202403-project
+  datasource:
+    url: jdbc:mysql://localhost:3306/ea_project
+    username: root
+    password: 2124
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximumPoolSize: 10
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+logging:
+  level:
+    root: INFO
+  file:
+    name: /CS544/Logging/${spring.application.name}/logs
 #spring:
 #  activemq:
 #    broker-url: http://57.151.89.65:61616
@@ -22,3 +60,4 @@
 #      hibernate:
 #        dialect: org.hibernate.dialect.SQLServerDialect
 #    generate-ddl: true
+

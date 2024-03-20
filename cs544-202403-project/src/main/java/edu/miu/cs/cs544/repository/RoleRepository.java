@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface RoleRepository extends BaseRepository<Role, Integer>{
 
-    @Query("SELECT r FROM Role r JOIN r.members m WHERE r.roleId = :roleId AND m.memberId = :memberId")
+//    @Query("SELECT r FROM Role r JOIN r.members m WHERE r.roleId = :roleId AND m.memberId = :memberId")
+    @Query("SELECT m.* FROM  Member m where m.memberId =:memberId join fetch m.roles")
     Role findByMemberIdAndRoleId(@Param("memberId") Integer memberId, @Param("roleId") Integer roleId);
 }

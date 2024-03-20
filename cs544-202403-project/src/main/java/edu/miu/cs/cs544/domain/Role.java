@@ -6,6 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,7 +28,8 @@ public class Role implements Serializable {
             joinColumns=@JoinColumn(name="member_id"),
             inverseJoinColumns =@JoinColumn(name="role_id")
     )
-    Collection<Member> members=new ArrayList<>();
+    private List<Member> members;
+//    Collection<Member> members=new ArrayList<>();
 
     public Role(){}
 

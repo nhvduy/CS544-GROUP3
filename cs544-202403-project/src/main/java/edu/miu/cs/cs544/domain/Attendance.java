@@ -17,6 +17,10 @@ public class Attendance implements Serializable {
     @JoinColumn(name="scannerCode")//need to confirm
     private Scanner scanner;
 
+    @ManyToOne
+    @JoinColumn(name="member_Id")
+    private Member member;
+
     private LocalDateTime scanDateTime;
 
     public Attendance(){}
