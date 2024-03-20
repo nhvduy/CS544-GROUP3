@@ -1,5 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.miu.common.domain.AuditData;
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,10 +35,11 @@ public class Member implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name="Member_Role",
-            joinColumns=@JoinColumn(name="member_Id"),
-            inverseJoinColumns =@JoinColumn(name="role_Id")
+            name="member_role",
+            joinColumns=@JoinColumn(name="member_id"),
+            inverseJoinColumns =@JoinColumn(name="role_id")
     )
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
     @ManyToMany(mappedBy = "members")

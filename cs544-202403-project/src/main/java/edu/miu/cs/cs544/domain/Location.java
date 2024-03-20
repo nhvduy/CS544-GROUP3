@@ -12,6 +12,7 @@ public class Location implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="location_id")
     private Integer locationId;
     private String name;
     private String description;

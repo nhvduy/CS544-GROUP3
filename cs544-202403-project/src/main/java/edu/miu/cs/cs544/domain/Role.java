@@ -1,5 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,14 +23,9 @@ public class Role implements Serializable {
     @ManyToMany(mappedBy = "roles")
     Collection<Account> defaultAccounts=new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name="Member_Role",
-            joinColumns=@JoinColumn(name="member_id"),
-            inverseJoinColumns =@JoinColumn(name="role_id")
-    )
+    @ManyToMany(mappedBy = "roles")
+    @JsonIgnore
     private List<Member> members;
-//    Collection<Member> members=new ArrayList<>();
 
     public Role(){}
 

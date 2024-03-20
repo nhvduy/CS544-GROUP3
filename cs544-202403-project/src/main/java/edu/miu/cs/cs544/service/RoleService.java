@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface RoleService extends BaseReadWriteService <RolePayload, Role, Integer>{
     void addRole(Integer memberId, RolePayload rolePayload);
+//    void addRole(Integer memberId, Integer roleId);
 
     //add session
     void updateRole(Integer memberId, RolePayload rolePayload);

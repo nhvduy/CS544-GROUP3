@@ -17,7 +17,7 @@ public class Scanner implements Serializable {
     private Integer scannerCode;
 
     @ManyToOne
-    @JoinColumn(name = "locationId")
+    @JoinColumn(name = "location_id")
     Location location;
 
     @Enumerated(EnumType.STRING)

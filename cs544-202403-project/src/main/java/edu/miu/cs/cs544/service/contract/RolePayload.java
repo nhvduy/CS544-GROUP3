@@ -13,7 +13,7 @@ import java.util.Collection;
 @Data
 public class RolePayload implements Serializable {
 
-    private long roleId;
+    private Integer roleId;
     private String roleType;
 
     Collection<Account> defaultAccounts=new ArrayList<>();

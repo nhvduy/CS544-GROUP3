@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role, Integer> implements RoleService {
@@ -49,9 +46,9 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
         Member member1 = getMember(memberId);
         if(member1 != null){
             Role role1 = toRoleMapper.map(rolePayload);
+            role1 =  repository.save(role1);
             member1.getRoles().add(role1);
             memberRepository.save(member1);
-//            repository.save(session1);
         }
     }
 
@@ -62,10 +59,11 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
         Member member1 = getMember(memberId);
         if(member1 != null){
             Role role1 = toRoleMapper.map(rolePayload);
-            member1.getRoles().removeIf(role -> Objects.equals(role.getRoleId(), role1.getRoleId()));
-            member1.getRoles().add(role1);
+            member1.getRoles().removeIf(role2 -> Objects.equals(role2.getRoleId(), role1.getRoleId()));
+            repository.deleteById(role1.getRoleId());
+            Role role2 =  repository.save(role1);
+            member1.getRoles().add(role2);
             memberRepository.save(member1);
-//            repository.save(session1);
         }
     }
 
@@ -93,10 +91,10 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
     @Override
     public List<RolePayload> getAllRoles(Integer memberId) {
         Member member1 = getMember(memberId);
-        List<Role> roles = new ArrayList<>();
+        Set<Role> roles = new HashSet<>();
         List<RolePayload> rolePayloads = new ArrayList<>();
         if(member1 != null){
-            roles = (List<Role>)member1.getRoles();
+            roles = member1.getRoles();
             if(!roles.isEmpty()){
                 for(Role role : roles){
                     rolePayloads.add(toRolePayloadMapper.map(role));

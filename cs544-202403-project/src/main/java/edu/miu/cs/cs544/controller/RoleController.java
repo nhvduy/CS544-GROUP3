@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RequestMapping("/members/{memberId}/roles")
 @RestController
@@ -50,7 +51,7 @@ public class RoleController extends BaseReadWriteController<RolePayload, Role, I
 
     @DeleteMapping("/id/{roleId}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteRole(@PathVariable("memberId") Integer memberId, @PathVariable Integer roleId) {
+    public void deleteRole(@PathVariable("memberId") Integer memberId, @PathVariable("roleId") Integer roleId) {
         roleService.deleteRole(memberId, roleId);
     }
 
