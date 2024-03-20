@@ -14,6 +14,5 @@ COPY --from=build /app/cs544-202403-project/target/cs544-202403-project-2.0.0-SN
 ENV SPRING_PROFILES_ACTIVE default
 
 EXPOSE 443
-EXPOSE 80
 
 ENTRYPOINT ["java", "-jar", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "project-0.0.1.jar"]
