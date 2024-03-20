@@ -33,7 +33,11 @@ public class Member implements Serializable {
     @JoinColumn(name="member_id")
     Collection<Account> accounts=new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+//    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Attendance> attendances;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name="member_role",
             joinColumns=@JoinColumn(name="member_id"),
@@ -45,9 +49,9 @@ public class Member implements Serializable {
     @ManyToMany(mappedBy = "members")
     Collection<Event> events=new ArrayList<>();
 
-    @OneToMany
-    @JoinColumn(name="member_id")//need to confirm
-    List<Attendance> Attendance=new ArrayList<>();
+//    @OneToMany
+//    @JoinColumn(name="member_id")//need to confirm
+//    List<Attendance> Attendance=new ArrayList<>();
 
 
     public Member(){}
