@@ -11,4 +11,6 @@ import java.util.Map;
 public interface AttendanceService extends BaseReadWriteService<AttendancePayload, Attendance,Integer> {
     List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode);
 
+
+
 }

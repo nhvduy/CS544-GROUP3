@@ -10,6 +10,5 @@ import java.io.Serializable;
 public class ScannerPayload implements Serializable {
     private Integer scannerCode;
     private Integer eventId;
-    private Integer location;
     private String accountType;
 }
