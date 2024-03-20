@@ -1,13 +1,17 @@
 package edu.miu.cs.cs544.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Attendance implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -19,6 +23,7 @@ public class Attendance implements Serializable {
 
     private LocalDateTime scanDateTime;
 
-    public Attendance(){}
 
+//    public Member getMember() {
+//    }
 }
