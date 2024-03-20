@@ -1,13 +1,18 @@
 package edu.miu.cs.cs544.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Attendance implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -21,8 +26,18 @@ public class Attendance implements Serializable {
     @JoinColumn(name="member_Id")
     private Member member;
 
-    private LocalDateTime scanDateTime;
+//    @ManyToOne
+//    @JoinColumn(name="session_Id")
+//    private Session session;
+//
+//    @ManyToOne
+//    @JoinColumn(name="event_Id")
+//    private Event event;
 
-    public Attendance(){}
+
+
+    private LocalDateTime scanDate;
+
+
 
 }
