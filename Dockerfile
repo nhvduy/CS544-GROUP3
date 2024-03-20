@@ -13,6 +13,7 @@ WORKDIR /app
 COPY --from=build /app/cs544-202403-project/target/cs544-202403-project-2.0.0-SNAPSHOT.jar project-0.0.1.jar
 ENV SPRING_PROFILES_ACTIVE default
 
+EXPOSE 80
 EXPOSE 443
 
 ENTRYPOINT ["java", "-jar", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "project-0.0.1.jar"]
