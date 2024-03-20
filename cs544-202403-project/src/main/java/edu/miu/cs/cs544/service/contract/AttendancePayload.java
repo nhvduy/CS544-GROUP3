@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class AttendancePayload implements Serializable {
     private Integer scanRecordId;
     private MemberPayload member;
+
     private ScannerPayload scannerCode;
     private LocalDateTime scanDate;
 //    private Integer accountId;
@@ -21,5 +22,9 @@ public class AttendancePayload implements Serializable {
 //    private Integer balance;
 //    private String description;
 //    private String name;
+
+   private LocalDateTime scanDateTime;
+    private ScannerPayload scanner;
+
 
 }

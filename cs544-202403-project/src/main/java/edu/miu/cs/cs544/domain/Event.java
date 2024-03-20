@@ -18,6 +18,7 @@ public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="event_id")
     private  Integer eventId;
     @Column(nullable = false)
     private String name;

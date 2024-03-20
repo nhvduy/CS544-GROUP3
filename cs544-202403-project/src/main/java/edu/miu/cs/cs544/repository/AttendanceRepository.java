@@ -13,8 +13,7 @@ import java.util.List;
 @Repository
 public interface AttendanceRepository extends BaseRepository<Attendance,Integer> {
 
-    @Query("SELECT a FROM Attendance a WHERE a.scanner.event IN (SELECT e FROM Member m JOIN m.events e WHERE m.memberId = :memberId)")
-    List<Attendance> findAttendanceByMemberId(@Param("memberId") Integer memberId);
+
 
 //    @Query(value = "SELECT a.*"+
 //            "FROM ea_project.dbo.Account a"+
@@ -38,5 +37,10 @@ public interface AttendanceRepository extends BaseRepository<Attendance,Integer>
 //List<Attendance> findAllByAccountId(@Param("accountId") Integer accountId,
 //                                 @Param("startDate") String startDate,
 //                                 @Param("endDate") String endDate);
+
+
+
+    @Query("SELECT a FROM Attendance a WHERE a.member.memberId = :memberId")
+    List<Attendance> findAllByMemberId(@Param("memberId") Integer memberId);
 
 }

@@ -1,5 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.miu.common.domain.AuditData;
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,7 +10,7 @@ import java.util.*;
 
 @Data
 @Entity
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
@@ -27,20 +28,34 @@ public class Member implements Serializable {
     @Column(nullable = false, unique = true)
     private String barCode;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name="member_Id")
-    List<Account> accounts = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="member_id")
+    Collection<Account> accounts=new ArrayList<>();
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Attendance> attendances;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
-            name="Member_Role",
-            joinColumns=@JoinColumn(name="member_Id"),
-            inverseJoinColumns =@JoinColumn(name="role_Id")
+            name="member_role",
+            joinColumns=@JoinColumn(name="member_id"),
+            inverseJoinColumns =@JoinColumn(name="role_id")
     )
+    @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
     @ManyToMany(mappedBy = "members")
     Collection<Event> events=new ArrayList<>();
+
+//    @OneToMany
+//    @JoinColumn(name="member_id")//need to confirm
+//    List<Attendance> Attendance=new ArrayList<>();
+
+
+    public Member(){}
+
 
     @Embedded
     AuditData auditData = new AuditData();
