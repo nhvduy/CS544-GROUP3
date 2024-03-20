@@ -25,11 +25,6 @@ public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePa
     }
 
     @Override
-    public List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode) {
-        return null;
-    }
-
-    @Override
     public Map<Member, List<Attendance>> calculateAttendanceForMember(Integer memberId) {
 
         List<Attendance> attendanceList = attendanceRepository.findAttendanceByMemberId(memberId);
@@ -50,4 +45,12 @@ public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePa
 
         return attendanceMap;
     }
+
+    @Override
+    public List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode) {
+       // List<Attendance> scanRecords=
+        return null;
+    }
+
+
 }
