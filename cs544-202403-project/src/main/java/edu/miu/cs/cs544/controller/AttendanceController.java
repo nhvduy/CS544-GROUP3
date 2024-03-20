@@ -26,9 +26,5 @@ public class AttendanceController extends BaseReadWriteController<AttendancePayl
         //List<ScanRecordPayload> scanRecord=scanRecordService.
         return null;
     }
-    @GetMapping("/members/{memberId}/attendance")
-    public ResponseEntity<Map<Member, List<Attendance>>> calculateAttendance(@PathVariable Integer memberId) {
-        Map<Member, List<Attendance>> attendanceMap = attendanceService.calculateAttendanceForMember(memberId);
-        return ResponseEntity.ok(attendanceMap);
-    }
+
 }
