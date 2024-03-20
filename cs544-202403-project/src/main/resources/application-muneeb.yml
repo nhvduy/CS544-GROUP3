@@ -18,16 +18,16 @@ spring:
   application:
     name: cs544-202403-project
   datasource:
-    url: jdbc:sqlserver://localhost:1434;databaseName=attendanceDB;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1434;databaseName=ea_project;trustServerCertificate=true
     username: sa
-    password: password
+    password: 123
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
