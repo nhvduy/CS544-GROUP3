@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @Data
 public class AttendancePayload implements Serializable {
     private Integer scanRecordId;
-    private Member member;
-    private Scanner scannerCode;
+    private MemberPayload member;
     private LocalDateTime scanDateTime;
+    private ScannerPayload scanner;
 
 }

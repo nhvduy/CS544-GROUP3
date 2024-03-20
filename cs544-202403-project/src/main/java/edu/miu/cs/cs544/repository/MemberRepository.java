@@ -11,6 +11,7 @@ import java.util.List;
 
 @Repository
 public interface MemberRepository extends BaseRepository<Member, Integer>{
-    @Query("SELECT a FROM Attendance a WHERE a.scanner.event IN (SELECT e FROM Member m JOIN m.events e WHERE m.memberId = :memberId)")
+//    @Query("SELECT a FROM Attendance a WHERE a.scanner.event IN " +
+//            "(SELECT e FROM Member m JOIN m.accounts e WHERE m.memberId = :memberId)")
     List<Attendance> findAttendanceByMemberId(@Param("memberId") Integer memberId);
 }

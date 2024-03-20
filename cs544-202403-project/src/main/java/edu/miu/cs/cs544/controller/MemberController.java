@@ -2,7 +2,9 @@ package edu.miu.cs.cs544.controller;
 
 
 import edu.miu.cs.cs544.domain.Attendance;
+import edu.miu.cs.cs544.domain.constant.AccountType;
 import edu.miu.cs.cs544.service.MemberService;
+import edu.miu.cs.cs544.service.contract.AttendancePayload;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +27,9 @@ public class MemberController extends BaseReadWriteController<MemberPayload, Mem
         this.memberService = memberService;
     }
 
-    @GetMapping("/members/{memberId}/attendance")
-    public ResponseEntity<Map<Member, List<Attendance>>> calculateAttendance(@PathVariable Integer memberId) {
-        Map<Member, List<Attendance>> attendanceMap = memberService.calculateAttendanceForMember(memberId);
+    @GetMapping("/{memberId}/attendance")
+    public ResponseEntity<Map<MemberPayload, List<AttendancePayload>>> calculateAttendance(@PathVariable Integer memberId) {
+        Map<MemberPayload, List<AttendancePayload>> attendanceMap = memberService.calculateAttendanceForMember(memberId);
         return ResponseEntity.ok(attendanceMap);
     }
 }

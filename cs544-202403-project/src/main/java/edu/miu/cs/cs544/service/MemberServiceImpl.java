@@ -2,7 +2,11 @@ package edu.miu.cs.cs544.service;
 
 import edu.miu.cs.cs544.domain.Attendance;
 import edu.miu.cs.cs544.domain.Event;
+import edu.miu.cs.cs544.domain.constant.AccountType;
 import edu.miu.cs.cs544.repository.MemberRepository;
+import edu.miu.cs.cs544.service.contract.AttendancePayload;
+import edu.miu.cs.cs544.service.mapper.AttendanceToAttendancePayloadMapper;
+import edu.miu.cs.cs544.service.mapper.MemberToMemberPayloadMapper;
 import org.springframework.stereotype.Service;
 
 import edu.miu.common.service.BaseReadWriteServiceImpl;
@@ -13,37 +17,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberServiceImpl extends BaseReadWriteServiceImpl<MemberPayload, Member, Integer> implements MemberService {
     private final MemberRepository memberRepository;
+    private final MemberToMemberPayloadMapper memberMapper;
+    private final AttendanceToAttendancePayloadMapper attendanceMapper;
 
-    public MemberServiceImpl(MemberRepository memberRepository) {
+    public MemberServiceImpl(MemberRepository memberRepository, MemberToMemberPayloadMapper memberMapper, AttendanceToAttendancePayloadMapper attendanceMapper) {
         this.memberRepository = memberRepository;
+        this.memberMapper = memberMapper;
+        this.attendanceMapper = attendanceMapper;
     }
 
     @Override
-    public Map<Member, List<Attendance>> calculateAttendanceForMember(Integer memberId) {
-
-        List<Attendance> attendanceList = memberRepository.findAttendanceByMemberId(memberId);
-        Map<Member, List<Attendance>> attendanceMap = new HashMap<>();
-
-        // Group attendance by member
-        for (Attendance attendance : attendanceList) {
-            // Assuming attendance has a reference to Event
-            Event event = attendance.getScanner().getEvent();
-
-            // Assuming event has a reference to Member
-            Member member = event.getMembers().iterator().next();
-
-            if (!attendanceMap.containsKey(member)) {
-                attendanceMap.put(member, new ArrayList<>());
-            }
-
-            attendanceMap.get(member).add(attendance);
-        }
-
-        return attendanceMap;
+    public Map<MemberPayload, List<AttendancePayload>> calculateAttendanceForMember(Integer memberId) {
+        Member member = memberRepository.getReferenceById(memberId);
+        List<AttendancePayload> attendancePayloads = member.getAttendances().stream().map(attendanceMapper::map).collect(Collectors.toList());
+        Map<MemberPayload, List<AttendancePayload>> map = new HashMap<>();
+        map.put(memberMapper.map(member), attendancePayloads);
+        return map;
     }
 
 //    private final MemberRepository memberRepository;
