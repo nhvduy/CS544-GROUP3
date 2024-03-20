@@ -3,9 +3,9 @@ package edu.miu.cs.cs544.service;
 import edu.miu.common.service.BaseReadWriteServiceImpl;
 import edu.miu.cs.cs544.domain.Account;
 import edu.miu.cs.cs544.repository.AccountRepository;
-import edu.miu.cs.cs544.repository.ScanRecordRepository;
+import edu.miu.cs.cs544.repository.AttendanceRepository;
 import edu.miu.cs.cs544.service.contract.AccountPayload;
-import edu.miu.cs.cs544.service.contract.ScanRecordPayload;
+import edu.miu.cs.cs544.service.contract.AttendancePayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,17 +17,32 @@ public class AccountServiceImpl extends BaseReadWriteServiceImpl<AccountPayload,
     AccountRepository accountRepository;
 
     @Autowired
-    ScanRecordRepository scanRecordRepository;
+    AttendanceRepository attendanceRepository;
 
     @Override
     public List<String> findAccountsByBalanceCondition() {
-        return accountRepository.findAccountsByBalanceCondition();
+        return null;
     }
 
     @Override
-    public List<ScanRecordPayload> getAttendanceByAccountIdAndStartTimeAndEndTime(Long accountId, String startTime, String endTime) {
+    public List<AttendancePayload> getAttendanceByAccountIdAndStartTimeAndEndTime(Long accountId, String startTime, String endTime) {
         return null;
     }
+
+//    @Override
+//    public List<String> findAccountsByBalanceCondition() {
+//        return accountRepository.findAccountsByBalanceCondition();
+//    }
+
+//    @Override
+//    public List<AttendancePayload> getAttendanceByAccountIdAndStartTimeAndEndTime(Long accountId, String startTime, String endTime) {
+//        return null;
+//    }
+
+//    @Override
+//    public List<AttendancePayload> getAttendanceByAccountIdAndStartTimeAndEndTime(Long accountId, String startTime, String endTime) {
+//        return null;
+//    }
 
 //    public List<AttendancePayload> getAttendanceByAccountIdAndStartTimeAndEndTime(Long accountId, String startTime, String endTime) {
 //        List<Attendance> attendanceList = attendanceRepository.findAllByAccountId(accountId, startTime, endTime);
