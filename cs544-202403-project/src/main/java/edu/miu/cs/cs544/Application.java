@@ -1,9 +1,13 @@
 package edu.miu.cs.cs544;
 
+import edu.miu.cs.cs544.domain.ScanRecord;
+import edu.miu.cs.cs544.repository.ScanRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.time.LocalDateTime;
 
 //import edu.miu.cs.cs544.service.MemberService;
 
@@ -19,8 +23,14 @@ public class Application implements CommandLineRunner {
 		SpringApplication.run(Application.class, args);
 	}
 
+	@Autowired
+	ScanRecordRepository scanRecordRepository;
 	@Override
 	public void run(String... args) throws Exception {
 		//service.findAll().forEach(System.out::println);
+//		for(int i = 0 ; i <10; i++){
+//			ScanRecord record = new ScanRecord("111","1234", LocalDateTime.now());
+//
+//		}
 	}
 }
