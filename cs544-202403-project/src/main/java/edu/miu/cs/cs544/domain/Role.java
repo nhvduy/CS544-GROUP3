@@ -3,17 +3,19 @@ package edu.miu.cs.cs544.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Data
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long roleId;
+    private Integer roleId;
+
     private String roleType;
 
     @ManyToMany(mappedBy = "roles")

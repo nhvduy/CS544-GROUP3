@@ -26,7 +26,12 @@ public class Member implements Serializable {
     @JoinColumn(name="member_id")
     Collection<Account> accounts=new ArrayList<>();
 
-    @ManyToMany(mappedBy = "members")
+    @ManyToMany(mappedBy = "members",cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "member_role", // Name of the join table
+//            joinColumns = @JoinColumn(name = "member_id"), // Name of the column for the member id
+//            inverseJoinColumns = @JoinColumn(name = "role_id") // Name of the column for the role id
+//    )
     Collection<Role> roles=new ArrayList<>();
 
 
@@ -34,7 +39,7 @@ public class Member implements Serializable {
     Collection<Event> events=new ArrayList<>();
 
     @OneToMany
-    @JoinColumn(name="member_Id")//need to confirm
+    @JoinColumn(name="member_id")//need to confirm
     List<Attendance> Attendance=new ArrayList<>();
 
 
