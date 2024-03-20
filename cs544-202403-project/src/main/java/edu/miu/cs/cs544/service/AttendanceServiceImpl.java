@@ -7,18 +7,20 @@ import edu.miu.cs.cs544.domain.Member;
 import edu.miu.cs.cs544.domain.constant.AccountType;
 import edu.miu.cs.cs544.repository.AttendanceRepository;
 import edu.miu.cs.cs544.service.contract.AttendancePayload;
+import edu.miu.cs.cs544.service.mapper.AttendanceToAttendancePayloadMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePayload, Attendance,Integer> implements AttendanceService {
 
+    @Autowired
     private final AttendanceRepository attendanceRepository;
+
+    @Autowired
+    private AttendanceToAttendancePayloadMapper attendanceToAttendancePayloadMapper;
     @Autowired
     public AttendanceServiceImpl(AttendanceRepository attendanceRepository) {
         this.attendanceRepository = attendanceRepository;
@@ -48,7 +50,16 @@ public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePa
 
     @Override
     public List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode) {
-       // List<Attendance> scanRecords=
+
+//        List<Record> records = recordRepository.findByScannerId(scannerId);
+//        return records.stream()
+//                .map(record -> recordMapper.customMapping(record))
+//                .collect(Collectors.toList());
+//    }
+
+        Optional<Attendance> scanRecords= attendanceRepository.findById(scannerCode);
+        //return scanRecords.stream().map(attendance -> attanc)
+
         return null;
     }
 
