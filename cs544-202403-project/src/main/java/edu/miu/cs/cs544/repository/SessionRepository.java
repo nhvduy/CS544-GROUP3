@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface SessionRepository extends BaseRepository<Session, Integer>{
 
-//    @Query(value = "select s.* from Session s where s.event_id =:eventId and s.sessionId =:sessionId",nativeQuery = true)
-//    List<Session> findAllByEventIdAndSessionId(@Param("eventId")Integer eventId,@Param("sessionId")Integer sessionId);
+    @Query(value = "select s.* from Session s where s.event_id =:eventId and s.sessionId =:sessionId",nativeQuery = true)
+    List<Session> findAllByEventIdAndSessionId(@Param("eventId")Integer eventId,@Param("sessionId")Integer sessionId);
 }
