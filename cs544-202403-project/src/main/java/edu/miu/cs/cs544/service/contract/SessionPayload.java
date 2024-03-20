@@ -10,7 +10,7 @@ public class SessionPayload implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private long sessionId;
+    private Integer sessionId;
 
     private LocalDateTime startedDateTime;
 

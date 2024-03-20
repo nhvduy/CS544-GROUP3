@@ -6,6 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
@@ -32,6 +33,9 @@ public class Member implements Serializable {
     @ManyToMany(mappedBy = "members")
     Collection<Event> events=new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name="member_Id")//need to confirm
+    List<ScanRecord> scanRecords=new ArrayList<>();
 
 
     public Member(){}
