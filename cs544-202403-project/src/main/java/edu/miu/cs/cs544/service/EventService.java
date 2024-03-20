@@ -5,4 +5,6 @@ import edu.miu.cs.cs544.domain.Event;
 import edu.miu.cs.cs544.service.contract.EventPayload;
 
 public interface EventService extends BaseReadWriteService<EventPayload, Event, Integer> {
+    Event getByEventId(Integer eventId);
+
 }

@@ -4,16 +4,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity
-public class Session {
+public class Session implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long sessionId;
+    private Integer sessionId;
 
     private LocalDateTime startedDateTime;
 
@@ -21,5 +26,4 @@ public class Session {
 
     private Integer numOfSessions;
 
-    public Session(){}
 }
