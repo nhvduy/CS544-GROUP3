@@ -27,41 +27,9 @@ public class AttendanceServiceImpl extends BaseReadWriteServiceImpl<AttendancePa
     }
 
     @Override
-    public Map<Member, List<Attendance>> calculateAttendanceForMember(Integer memberId) {
-
-        List<Attendance> attendanceList = attendanceRepository.findAttendanceByMemberId(memberId);
-        Map<Member, List<Attendance>> attendanceMap = new HashMap<>();
-
-        for (Attendance attendance : attendanceList) {
-
-            Event event = attendance.getScanner().getEvent();
-
-            Member member = event.getMembers().iterator().next();
-
-            if (!attendanceMap.containsKey(member)) {
-                attendanceMap.put(member, new ArrayList<>());
-            }
-
-            attendanceMap.get(member).add(attendance);
-        }
-
-        return attendanceMap;
-    }
-
-    @Override
     public List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode) {
-
-//        List<Record> records = recordRepository.findByScannerId(scannerId);
-//        return records.stream()
-//                .map(record -> recordMapper.customMapping(record))
-//                .collect(Collectors.toList());
-//    }
-
-        Optional<Attendance> scanRecords= attendanceRepository.findById(scannerCode);
-        //return scanRecords.stream().map(attendance -> attanc)
 
         return null;
     }
-
 
 }
