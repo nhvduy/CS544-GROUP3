@@ -15,4 +15,4 @@ ENV SPRING_PROFILES_ACTIVE default
 
 EXPOSE 443
 
-ENTRYPOINT ["java", "-jar", "project-0.0.1.jar"]
+ENTRYPOINT ["java", "-jar", "--add-opens", "java.base/java.lang=ALL-UNNAMED", "project-0.0.1.jar"]
