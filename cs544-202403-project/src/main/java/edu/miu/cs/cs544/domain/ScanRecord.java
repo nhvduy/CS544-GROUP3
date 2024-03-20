@@ -14,11 +14,11 @@ public class ScanRecord implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Integer scanRecordId;
-    private String barCode;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="scannerCode")
-    private Scanner scannerCode;
+    @JoinColumn(name="scannerCode")//need to confirm
+    private Scanner scanner;
+
     private LocalDateTime scanDateTime;
 
     public ScanRecord(){}

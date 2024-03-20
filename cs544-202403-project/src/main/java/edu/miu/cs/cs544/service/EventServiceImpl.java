@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class EventServiceImpl extends BaseReadWriteServiceImpl<EventPayload, Event, Long> implements EventService{
+public class EventServiceImpl extends BaseReadWriteServiceImpl<EventPayload, Event, Integer> implements EventService{
 
     @Autowired
     private EventRepository eventRepository;
 
     @Override
     public Event getByEventId(Integer eventId) {
-        Optional<Event> eventOptional = eventRepository.findById(eventId.longValue());
+        Optional<Event> eventOptional = eventRepository.findById(eventId);
         return eventOptional.orElse(null);
     }
 }

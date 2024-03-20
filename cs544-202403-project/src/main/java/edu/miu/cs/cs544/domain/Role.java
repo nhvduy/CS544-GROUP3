@@ -27,6 +27,6 @@ public class Role {
     )
     Collection<Member> members=new ArrayList<>();
 
-
+    public Role(){}
 
 }
