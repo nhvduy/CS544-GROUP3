@@ -31,7 +31,11 @@ public class Member implements Serializable {
     @JoinColumn(name="member_Id")
     List<Account> accounts = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.EAGER)
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List<Attendance> attendances;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name="Member_Role",
             joinColumns=@JoinColumn(name="member_Id"),
