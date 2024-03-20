@@ -1,5 +1,6 @@
 package edu.miu.cs.cs544.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -8,7 +9,7 @@ import java.util.Collection;
 
 @Data
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Role {
 
     @Id
@@ -17,16 +18,17 @@ public class Role {
     private String roleType;
 
     @ManyToMany(mappedBy = "roles")
-    Collection<Account> defaultAccounts=new ArrayList<>();
+    Collection<Account> defaultAccounts = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
-            name="Member_Role",
-            joinColumns=@JoinColumn(name="member_id"),
-            inverseJoinColumns =@JoinColumn(name="role_id")
+            name = "Member_Role",
+            joinColumns = @JoinColumn(name = "member_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    Collection<Member> members=new ArrayList<>();
+    Collection<Member> members = new ArrayList<>();
 
-    public Role(){}
+    public Role() {
+    }
 
 }

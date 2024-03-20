@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,14 +26,15 @@ public class AccountController extends BaseReadWriteController<AccountPayload, A
     @Autowired
     AccountService accountService;
 
-    @GetMapping("/{accountId}/attendace/{startTime}/{endTime}")
-    public ResponseEntity<?> getAttendaceByAccountIdAndTime(@PathVariable Integer accountId, @PathVariable String startTime, @PathVariable String endTime) {
 
-//        List<AttendancePayload> attendacePayloadList = accountService.getAttendanceByAccountIdAndStartTimeAndEndTime(accountId, startTime, endTime);
-//        Map<Integer, List<AttendancePayload>> map = new HashMap<Integer, List<AttendancePayload>>();
-//        map.put(accountId, attendacePayloadList);
-//        return new ResponseEntity<>(map, HttpStatus.OK);
-        return null;
+
+    @GetMapping("/{accountId}/attendance/{startTime}/{endTime}")
+    public ResponseEntity<?> getAttendaceByAccountIdAndTime(@PathVariable Integer accountId, @PathVariable LocalDate startTime, @PathVariable LocalDate endTime) {
+
+        List<AttendancePayload> attendacePayloadList = accountService.getAttendanceByAccountIdAndStartTimeAndEndTime(accountId, startTime, endTime);
+        Map<Integer, List<AttendancePayload>> map = new HashMap<Integer, List<AttendancePayload>>();
+        map.put(accountId, attendacePayloadList);
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
     
 

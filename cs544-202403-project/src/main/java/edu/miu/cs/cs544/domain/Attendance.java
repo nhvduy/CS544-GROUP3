@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -25,9 +26,18 @@ public class Attendance implements Serializable {
     @JoinColumn(name="member_Id")
     private Member member;
 
-    private LocalDateTime scanDateTime;
+//    @ManyToOne
+//    @JoinColumn(name="session_Id")
+//    private Session session;
+//
+//    @ManyToOne
+//    @JoinColumn(name="event_Id")
+//    private Event event;
 
 
-//    public Member getMember() {
-//    }
+
+    private LocalDateTime scanDate;
+
+
+
 }

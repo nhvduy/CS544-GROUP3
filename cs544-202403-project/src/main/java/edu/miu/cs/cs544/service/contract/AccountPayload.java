@@ -12,15 +12,15 @@ public class AccountPayload implements Serializable {
     private  String description;
     private double balance;
     private double defaultBalance = 100;
-    private AccountType type;
+    private AccountType accountType;
 
 
 
-    public AccountPayload(String name, String description, double defaultBalance, double balance, AccountType type) {
-        this.name = name;
-        this.description = description;
-        this.defaultBalance = defaultBalance;
-        this.balance = balance;
-        this.type = type;
-    }
+//    public AccountPayload(String name, String description, double defaultBalance, double balance, AccountType type) {
+//        this.name = name;
+//        this.description = description;
+//        this.defaultBalance = defaultBalance;
+//        this.balance = balance;
+//        this.type = type;
+//    }
 }
