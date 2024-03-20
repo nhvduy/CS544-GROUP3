@@ -40,6 +40,6 @@ jobs:
       with:
         context: .
         push: true
-        file: ./cs544-202403-project/Dockerfile
+        file: ./Dockerfile
         tags: |
           ${{ env.IMAGE_ID }}
