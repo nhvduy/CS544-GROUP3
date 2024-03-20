@@ -41,4 +41,4 @@ logging:
   level:
     root: INFO
   file:
-    name: /CS544/Logging/${spring.application.name}/logs
+    name: /CS544/Logging/cs544-project/logs
