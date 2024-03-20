@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-public class ScanRecordPayload implements Serializable {
+public class AttendancePayload implements Serializable {
     private Integer scanRecordId;
     private Member member;
     private Scanner scannerCode;

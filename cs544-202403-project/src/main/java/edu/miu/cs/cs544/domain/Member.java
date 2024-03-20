@@ -35,7 +35,7 @@ public class Member implements Serializable {
 
     @OneToMany
     @JoinColumn(name="member_Id")//need to confirm
-    List<ScanRecord> scanRecords=new ArrayList<>();
+    List<Attendance> Attendance=new ArrayList<>();
 
 
     public Member(){}
