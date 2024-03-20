@@ -9,4 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/scanners")
 public class ScannerController extends BaseReadWriteController<ScannerPayload, Scanner,Integer> {
+
 }
