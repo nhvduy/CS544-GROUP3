@@ -1,5 +1,7 @@
 name: Build and Deploy Service
 on:
+  push:
+    branches: ["devops" ]
   workflow_dispatch:
 env:
   REGISTRY_SERVER: cs544group3.azurecr.io
