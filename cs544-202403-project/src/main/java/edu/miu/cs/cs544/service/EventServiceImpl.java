@@ -6,7 +6,9 @@ import edu.miu.cs.cs544.domain.Event;
 import edu.miu.cs.cs544.domain.Member;
 import edu.miu.cs.cs544.repository.AttendanceRepository;
 import edu.miu.cs.cs544.repository.EventRepository;
+import edu.miu.cs.cs544.service.contract.AttendancePayload;
 import edu.miu.cs.cs544.service.contract.EventPayload;
+import edu.miu.cs.cs544.service.contract.MemberPayload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

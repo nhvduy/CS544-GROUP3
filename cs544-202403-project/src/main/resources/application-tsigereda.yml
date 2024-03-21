@@ -18,7 +18,7 @@ spring:
   application:
     name: cs544-202403-project
   datasource:
-    url: jdbc:sqlserver://localhost:1434;databaseName=group3;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1434;databaseName=project;trustServerCertificate=true
     username: sa
     password: domain
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
