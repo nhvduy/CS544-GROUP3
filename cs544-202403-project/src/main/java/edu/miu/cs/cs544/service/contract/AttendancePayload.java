@@ -12,19 +12,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AttendancePayload implements Serializable {
-    private Integer scanRecordId;
+
+    private Integer attendanceId;
+    private Integer memberId;
+    private Integer scannerId;
+    private Member member;
+    private Scanner scannerCode;
+    private LocalDateTime scanDateTime;
+
+  
     private MemberPayload member;
 
     private ScannerPayload scannerCode;
-    private LocalDateTime scanDate;
-//    private Integer accountId;
-//    private String accountType;
-//    private Integer balance;
-//    private String description;
-//    private String name;
 
-   private LocalDateTime scanDateTime;
     private ScannerPayload scanner;
+
 
 
 }

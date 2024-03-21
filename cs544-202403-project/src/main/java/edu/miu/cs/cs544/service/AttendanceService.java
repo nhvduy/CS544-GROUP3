@@ -9,7 +9,13 @@ import java.util.List;
 import java.util.Map;
 
 public interface AttendanceService extends BaseReadWriteService<AttendancePayload, Attendance,Integer> {
-    List<AttendancePayload> getScanRecordByScannerCode(Integer scannerCode);
+    List<AttendancePayload> findByScannerCode(Integer scannerCode);
+
+    public void saveAttendance(Integer scannerCode, AttendancePayload attendancePayload);
+
+    public void deleteAttendance(Integer scannerCode,Integer recordId);
+
+    public AttendancePayload updateAttendance(Integer scannerCode,Integer recordId,AttendancePayload attendancePayload);
 
 
 

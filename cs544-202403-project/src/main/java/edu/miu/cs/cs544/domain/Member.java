@@ -1,6 +1,7 @@
 package edu.miu.cs.cs544.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import edu.miu.common.domain.AuditData;
 import jakarta.persistence.*;
 import lombok.*;
@@ -35,7 +36,9 @@ public class Member implements Serializable {
 
 //    @ManyToMany(fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<Attendance> attendances = new ArrayList<>();
+    @JsonManagedReference
+    List<Attendance> attendances;
+
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(

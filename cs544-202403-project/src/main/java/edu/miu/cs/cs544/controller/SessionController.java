@@ -17,8 +17,9 @@ import java.util.List;
 @RestController
 public class SessionController extends BaseReadWriteController<SessionPayload, Session, Integer> {
 
-    @Autowired
+
     private SessionService sessionService;
+
 
 
     @GetMapping("/id/{sessionId}")

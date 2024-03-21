@@ -11,4 +11,17 @@ public class AttendanceToAttendancePayloadMapper extends BaseMapper<Attendance, 
     public AttendanceToAttendancePayloadMapper(MapperFactory mapperFactory){
         super(mapperFactory, Attendance.class, AttendancePayload.class);
     }
+
+    public AttendancePayload customMapping(Attendance source) {
+        AttendancePayload target = new AttendancePayload();
+        target.setAttendanceId(source.getAttendanceId());
+        target.setMemberId(source.getMember().getMemberId());
+        target.setScannerId(source.getScanner().getScannerCode());
+
+//        target.setMember(source.getMember());
+//        target.setScannerCode(source.getScanner());
+
+        target.setScanDateTime(source.getScanDateTime());
+        return target;
+    }
 }
