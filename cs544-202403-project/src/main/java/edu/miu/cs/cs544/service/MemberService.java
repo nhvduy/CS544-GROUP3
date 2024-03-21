@@ -19,4 +19,6 @@ public interface MemberService extends BaseReadWriteService <MemberPayload, Memb
 
     Map<MemberPayload, List<AttendancePayload>> calculateAttendanceForMember(Integer memberId);
 
+    List<Member> getAllMembers();
+
 }

@@ -29,5 +29,6 @@ public class Application implements CommandLineRunner {
 //			ScanRecord record = new ScanRecord("111","1234", LocalDateTime.now());
 //
 //		}
+
 	}
 }
