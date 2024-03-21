@@ -13,10 +13,7 @@ import edu.miu.cs.cs544.service.mapper.SessionPayloadToSessionMapper;
 import edu.miu.common.service.BaseReadWriteServiceImpl;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class SessionServiceImpl extends BaseReadWriteServiceImpl<SessionPayload, Session, Integer> implements SessionService {
@@ -79,11 +76,9 @@ public class SessionServiceImpl extends BaseReadWriteServiceImpl<SessionPayload,
     @Override
     public SessionPayload getSession(Integer eventId, Integer sessionId) {
         Event event1 = getEvent(eventId);
-        List<Session> sessions = repository.findAllByEventIdAndSessionId(eventId,sessionId);
-        for(Session session : sessions){
-            if(session.getSessionId() == sessionId){
-                return toSessionPayloadMapper.map(session);
-            }
+        Session session = repository.findByEventIdAndSessionId(eventId,sessionId);
+        if(session != null){
+            return toSessionPayloadMapper.map(session);
         }
         return null;
     }
