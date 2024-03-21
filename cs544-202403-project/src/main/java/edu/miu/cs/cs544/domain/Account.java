@@ -18,6 +18,7 @@ public class Account implements Serializable {
     private  String name;
     private  String description;
     private double balance;
+   // private double defaultBalance;
     @Enumerated(EnumType.STRING)
     AccountType accountType;
     @ManyToMany
