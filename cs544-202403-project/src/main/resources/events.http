@@ -8,5 +8,62 @@ Content-Type: application/json
 
 {
   "name": "EA",
-  "description": "Enterprise applications"
+  "description": "Enterprise Application",
+  "startedDateTime": "2024-04-01T09:00:00",
+  "endedDateTime": "2024-04-03T18:00:00",
+  "schedule": [
+    {
+      "startTime": "2024-04-01T09:00:00",
+      "endTime": "2024-04-01T18:00:00",
+      "location": "Conference Hall A"
+    },
+    {
+      "startTime": "2024-04-02T09:00:00",
+      "endTime": "2024-04-02T18:00:00",
+      "location": "Conference Hall B"
+    },
+    {
+      "startTime": "2024-04-03T09:00:00",
+      "endTime": "2024-04-03T18:00:00",
+      "location": "Conference Hall C"
+    }
+  ],
+  "members": []
 }
+
+
+###
+PUT http://localhost:8080/badge-system/events/1
+Authorization: Basic user 123
+Content-Type: application/json
+
+{
+  "name": "DBMS",
+  "description": "Database Management System",
+  "startedDateTime": "2024-04-01T09:00:00",
+  "endedDateTime": "2024-04-03T18:00:00",
+  "schedule": [
+    {
+      "startTime": "2024-04-01T09:00:00",
+      "endTime": "2024-04-01T18:00:00",
+      "location": "Conference Hall A"
+    },
+    {
+      "startTime": "2024-04-02T09:00:00",
+      "endTime": "2024-04-02T18:00:00",
+      "location": "Conference Hall B"
+    },
+    {
+      "startTime": "2024-04-03T09:00:00",
+      "endTime": "2024-04-03T18:00:00",
+      "location": "Conference Hall C"
+    }
+  ],
+  "members": []
+}
+
+
+
+###
+DELETE http://localhost:8080/badge-system/events/1
+Authorization: Basic user 123

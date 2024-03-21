@@ -3,9 +3,14 @@ package edu.miu.cs.cs544.service.contract;
 import java.io.Serial;
 import java.io.Serializable;
 
-import lombok.Data;
+import com.azure.core.annotation.Get;
+import lombok.*;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 public class MemberPayload implements Serializable {
 
 	@Serial
