@@ -1,6 +1,8 @@
 package edu.miu.cs.cs544.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import edu.miu.common.domain.AuditData;
 import jakarta.persistence.*;
 import lombok.*;
@@ -37,13 +39,15 @@ public class Member implements Serializable {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     List<Attendance> attendances = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name="member_role",
             joinColumns=@JoinColumn(name="member_id"),
             inverseJoinColumns =@JoinColumn(name="role_id")
     )
-    @JsonIgnore
+//    @JsonIgnore
+    @JsonIgnoreProperties("members") // Ignore 'members' property during serialization
+    @JsonManagedReference // Use this annotation to mark the owning side of the relationship
     private Set<Role> roles = new HashSet<>();
 
     @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
@@ -53,4 +57,5 @@ public class Member implements Serializable {
 
     @Embedded
     AuditData auditData = new AuditData();
+
 }

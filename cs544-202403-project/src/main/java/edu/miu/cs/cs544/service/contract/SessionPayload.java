@@ -18,4 +18,6 @@ public class SessionPayload implements Serializable {
 
     private Integer numOfSessions;
 
+    private String name;
+
 }

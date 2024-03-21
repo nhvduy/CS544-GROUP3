@@ -30,10 +30,9 @@ public class Event implements Serializable {
     private  LocalDateTime endedDateTime;
 
 //    @OneToMany(cascade = CascadeType.PERSIST)
-//    @JoinColumn(name="eventId")
+    @JoinColumn(name="eventId")
 //    private List<Session> sessions = new ArrayList<>();
     @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name="event_id")
     private List<Session> schedule;
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)

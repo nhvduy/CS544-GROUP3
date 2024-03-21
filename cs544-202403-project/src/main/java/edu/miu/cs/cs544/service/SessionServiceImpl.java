@@ -30,7 +30,7 @@ public class SessionServiceImpl extends BaseReadWriteServiceImpl<SessionPayload,
     @Autowired
     private SessionToSessionPayloadMapper toSessionPayloadMapper;
 
-    private Event event;
+//    private Event event;
 
     public Event getEvent(Integer eventId){
         return eventRepository.findById(eventId).orElse(null);
@@ -56,6 +56,7 @@ public class SessionServiceImpl extends BaseReadWriteServiceImpl<SessionPayload,
             Session session1 = toSessionMapper.map(session);
             event.getSchedule().removeIf(session2 -> session2.getSessionId() == session1.getSessionId());
             event.getSchedule().add(session1);
+            session1.setEvent(event);
             eventRepository.save(event);
 //            repository.save(session1);
         }

@@ -47,6 +47,7 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
         if(member1 != null){
             Role role1 = toRoleMapper.map(rolePayload);
             role1 =  repository.save(role1);
+            role1.getMembers().add(member1);
             member1.getRoles().add(role1);
             memberRepository.save(member1);
         }
@@ -60,8 +61,12 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
         if(member1 != null){
             Role role1 = toRoleMapper.map(rolePayload);
             member1.getRoles().removeIf(role2 -> Objects.equals(role2.getRoleId(), role1.getRoleId()));
+            role1.getMembers().removeIf(member -> member.getMemberId() == memberId);
+//            role1.setMember(member1);
             repository.deleteById(role1.getRoleId());
             Role role2 =  repository.save(role1);
+            role2.getMembers().add(member1);
+//            role2.setMember(member1);
             member1.getRoles().add(role2);
             memberRepository.save(member1);
         }
@@ -97,7 +102,14 @@ public class RoleServiceImpl extends BaseReadWriteServiceImpl<RolePayload, Role,
             roles = member1.getRoles();
             if(!roles.isEmpty()){
                 for(Role role : roles){
-                    rolePayloads.add(toRolePayloadMapper.map(role));
+//                    rolePayloads.add(toRolePayloadMapper.map(role));
+                    RolePayload payload = new RolePayload(
+                            role.getRoleId(),
+                            role.getRoleType(),
+                            role.getDefaultAccounts()
+//                            role.getMembers()
+                            );
+                    rolePayloads.add(payload);
                 }
             }
         }

@@ -20,8 +20,23 @@ public class RolePayload implements Serializable {
 
     Collection<Member> members=new ArrayList<>();
 
+    public RolePayload() {
+    }
+
+    public RolePayload(String roleType) {
+        this.roleType = roleType;
+    }
+
     public RolePayload(int id, String roleType) {
         this.roleId = id;
         this.roleType = roleType;
+    }
+
+//    public RolePayload(Integer roleId, String roleType, Collection<Account> defaultAccounts, Collection<Member> members) {
+    public RolePayload(Integer roleId, String roleType, Collection<Account> defaultAccounts) {
+        this.roleId = roleId;
+        this.roleType = roleType;
+        this.defaultAccounts = defaultAccounts;
+//        this.members = members;
     }
 }
