@@ -35,7 +35,7 @@ public class Member implements Serializable {
 
 //    @ManyToMany(fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<Attendance> attendances;
+    List<Attendance> attendances = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
