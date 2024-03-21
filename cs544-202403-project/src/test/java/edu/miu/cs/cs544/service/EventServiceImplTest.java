@@ -12,10 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -59,6 +56,7 @@ class EventServiceImplTest {
 
         Member member = new Member();
         member.setMemberId(1);
+        event.setMembers(List.of(member));
 
         Attendance attendance = new Attendance();
         attendance.setMember(member);
@@ -75,5 +73,4 @@ class EventServiceImplTest {
         // Then
         assertEquals(1, attendanceMap.size());
     }
-
 }

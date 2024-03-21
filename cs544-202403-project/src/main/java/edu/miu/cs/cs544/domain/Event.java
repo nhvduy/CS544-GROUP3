@@ -36,9 +36,9 @@ public class Event implements Serializable {
     @JoinColumn(name="event_id")
     private List<Session> schedule;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(
-            name="Event_Member",
+            name="registration",
             joinColumns=@JoinColumn(name="event_id"),
             inverseJoinColumns =@JoinColumn(name="member_id")
     )
