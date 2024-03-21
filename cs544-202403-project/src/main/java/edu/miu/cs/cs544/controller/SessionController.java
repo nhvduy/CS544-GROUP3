@@ -17,41 +17,41 @@ import java.util.List;
 @RestController
 public class SessionController extends BaseReadWriteController<SessionPayload, Session, Integer> {
 
-//    @Autowired
-//   private SessionService sessionService;
-//
-//    @Autowired
-//    private EventService eventService;
-//
-//
-//    @GetMapping("/id/{sessionId}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public SessionPayload getSession(@PathVariable("eventId") Integer eventId,@PathVariable("sessionId") Integer sessionId){
-//       return  sessionService.getSession(eventId,sessionId);
-//    }
-//
-//    @PostMapping("/+")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void addSession(@PathVariable("eventId") Integer eventId,@RequestBody SessionPayload session){
-//        sessionService.addSession(eventId,session);
-//    }
-//
-//    @PutMapping("/+-")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void updateSession(@PathVariable("eventId") Integer eventId, @RequestBody SessionPayload session){
-//        sessionService.updateSession(eventId,session);
-//    }
-//
-//    @DeleteMapping("/id/{sessionId}")
-//    @ResponseStatus(HttpStatus.OK)
-//    public void deleteSession(@PathVariable("eventId") Integer eventId, @PathVariable Integer sessionId){
-//        sessionService.deleteSession(eventId,sessionId);
-//    }
-//
-//    @GetMapping("/a")
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<SessionPayload> getAllSessions(@PathVariable("eventId") Integer eventId){
-//       return sessionService.getAllSession(eventId);
-//    }
+    @Autowired
+   private SessionService sessionService;
+
+    @Autowired
+    private EventService eventService;
+
+
+    @GetMapping("/id/{sessionId}")
+    @ResponseStatus(HttpStatus.OK)
+    public SessionPayload getSession(@PathVariable("eventId") Integer eventId,@PathVariable("sessionId") Integer sessionId){
+       return  sessionService.getSession(eventId,sessionId);
+    }
+
+    @PostMapping("/+")
+    @ResponseStatus(HttpStatus.OK)
+    public void addSession(@PathVariable("eventId") Integer eventId,@RequestBody SessionPayload session){
+        sessionService.addSession(eventId,session);
+    }
+
+    @PutMapping("/+-")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateSession(@PathVariable("eventId") Integer eventId, @RequestBody SessionPayload session){
+        sessionService.updateSession(eventId,session);
+    }
+
+    @DeleteMapping("/id/{sessionId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteSession(@PathVariable("eventId") Integer eventId, @PathVariable Integer sessionId){
+        sessionService.deleteSession(eventId,sessionId);
+    }
+
+    @GetMapping("/a")
+    @ResponseStatus(HttpStatus.OK)
+    public List<SessionPayload> getAllSessions(@PathVariable("eventId") Integer eventId){
+       return sessionService.getAllSession(eventId);
+    }
 
 }

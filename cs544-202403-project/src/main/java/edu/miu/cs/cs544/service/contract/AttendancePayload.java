@@ -9,7 +9,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class AttendancePayload implements Serializable {
-    private Integer scanRecordId;
+    private Integer attendanceId;
+    private Integer memberId;
+    private Integer scannerId;
     private Member member;
     private Scanner scannerCode;
     private LocalDateTime scanDateTime;
