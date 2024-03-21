@@ -19,9 +19,9 @@ spring:
     password: artemis
   datasource:
 
-    url: jdbc:sqlserver://cs544group3.database.windows.net:1433;databaseName=duyvu;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: admingroup3
-    password: cS544Group3
+    url: jdbc:sqlserver://localhost:1434;databaseName=duyvu;trustServerCertificate=true
+    username: sa
+    password: 123456
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
     hikari:
       maximumPoolSize: 10
