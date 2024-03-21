@@ -46,6 +46,8 @@ logging:
     root: INFO
   file:
     name: /CS544/Logging/${spring.application.name}/logs
+
+
 #common:
 #  security:
 #    enabled: false

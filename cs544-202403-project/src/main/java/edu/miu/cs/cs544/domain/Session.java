@@ -1,9 +1,7 @@
 package edu.miu.cs.cs544.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -26,4 +24,14 @@ public class Session implements Serializable {
 
     private Integer numOfSessions;
 
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name="eventId")
+    private Event event;
+
+    public Session(LocalDateTime startedDateTime, LocalDateTime endedDateTime, int numOfSessions) {
+        this.startedDateTime = startedDateTime;
+        this.endedDateTime = endedDateTime;
+        this.numOfSessions = numOfSessions;
+    }
 }

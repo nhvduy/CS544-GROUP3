@@ -19,6 +19,7 @@ public class Role implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
 
+    @Column(nullable = false)
     private String roleType;
 
     @ManyToMany(mappedBy = "roles")
@@ -32,4 +33,12 @@ public class Role implements Serializable {
     public Role() {
     }
 
+    public Role(String roleType) {
+        this.roleType = roleType;
+    }
+
+    public Role(int roleId, String roleType) {
+        this.roleId = roleId;
+        this.roleType = roleType;
+    }
 }
