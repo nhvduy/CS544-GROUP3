@@ -11,6 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
+
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Role implements Serializable {
 
@@ -18,15 +19,26 @@ public class Role implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer roleId;
 
+    @Column(nullable = false)
     private String roleType;
 
     @ManyToMany(mappedBy = "roles")
-    Collection<Account> defaultAccounts=new ArrayList<>();
+    Collection<Account> defaultAccounts = new ArrayList<>();
 
     @ManyToMany(mappedBy = "roles")
     @JsonIgnore
     private List<Member> members;
 
-    public Role(){}
 
+    public Role() {
+    }
+
+    public Role(String roleType) {
+        this.roleType = roleType;
+    }
+
+    public Role(int roleId, String roleType) {
+        this.roleId = roleId;
+        this.roleType = roleType;
+    }
 }

@@ -2,15 +2,21 @@ package edu.miu.cs.cs544.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+
+import lombok.*;
+
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Attendance implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +31,18 @@ public class Attendance implements Serializable {
     @JsonBackReference
     private Member member;
 
-    private LocalDateTime scanDateTime;
+//    @ManyToOne
+//    @JoinColumn(name="session_Id")
+//    private Session session;
+//
+//    @ManyToOne
+//    @JoinColumn(name="event_Id")
+//    private Event event;
+
+
+
+    private LocalDateTime scanDate;
+
 
     public Attendance() {
     }
@@ -45,5 +62,6 @@ public class Attendance implements Serializable {
         this.setScanner(scanner);
         this.setScanDateTime(scanDateTime);
     }
+
 
 }

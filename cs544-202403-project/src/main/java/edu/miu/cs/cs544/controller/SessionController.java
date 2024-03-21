@@ -13,15 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/sessions")
+@RequestMapping("/events/{eventId}/sessions")
 @RestController
 public class SessionController extends BaseReadWriteController<SessionPayload, Session, Integer> {
 
-    @Autowired
-   private SessionService sessionService;
 
-    @Autowired
-    private EventService eventService;
+    private SessionService sessionService;
+
 
 
     @GetMapping("/id/{sessionId}")

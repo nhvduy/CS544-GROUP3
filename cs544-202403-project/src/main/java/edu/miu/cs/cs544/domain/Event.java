@@ -33,16 +33,23 @@ public class Event implements Serializable {
 //    @JoinColumn(name="eventId")
 //    private List<Session> sessions = new ArrayList<>();
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="event_id")
+//    @JoinColumn(name="event_id")
     private List<Session> schedule;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinTable(
-            name="Event_Member",
+            name="registration",
             joinColumns=@JoinColumn(name="event_id"),
             inverseJoinColumns =@JoinColumn(name="member_id")
     )
     private Collection<Member> members=new ArrayList<>();
 
     public Event(){}
+
+    public Event(String name, String description, LocalDateTime startedDateTime, LocalDateTime endedDateTime) {
+        this.name = name;
+        this.description = description;
+        this.startedDateTime = startedDateTime;
+        this.endedDateTime =endedDateTime;
+    }
 }

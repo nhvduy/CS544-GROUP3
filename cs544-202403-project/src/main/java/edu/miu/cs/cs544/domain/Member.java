@@ -39,6 +39,7 @@ public class Member implements Serializable {
     @JsonManagedReference
     List<Attendance> attendances;
 
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(
             name="member_role",
@@ -48,16 +49,10 @@ public class Member implements Serializable {
     @JsonIgnore
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToMany(mappedBy = "members")
+    @ManyToMany(mappedBy = "members", fetch = FetchType.LAZY)
     Collection<Event> events=new ArrayList<>();
 
-//    @OneToMany
-//    @JoinColumn(name="member_id")//need to confirm
-//    List<Attendance> Attendance=new ArrayList<>();
-
-
     public Member(){}
-
 
     @Embedded
     AuditData auditData = new AuditData();

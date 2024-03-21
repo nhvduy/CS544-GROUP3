@@ -17,4 +17,6 @@ public interface AttendanceService extends BaseReadWriteService<AttendancePayloa
 
     public AttendancePayload updateAttendance(Integer scannerCode,Integer recordId,AttendancePayload attendancePayload);
 
+
+
 }
