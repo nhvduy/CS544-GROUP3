@@ -1,7 +1,7 @@
 name: Build and Deploy Service DevOps
 on:
   push:
-    branches: [ "main", "devops" ]
+    branches: [ "devops" ]
   workflow_dispatch:
 env:
   REGISTRY_SERVER: cs544group3.azurecr.io
@@ -42,7 +42,6 @@ jobs:
     - name: Deploy to Azure Web App
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: 'cs544group3'
-        slot-name: 'production'
+        app-name: 'group3project'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: '/home/runner/.m2/repository/edu/miu/cs/cs544/cs544-202403-project/2.0.0-SNAPSHOT/cs544-202403-project-2.0.0-SNAPSHOT.jar'
